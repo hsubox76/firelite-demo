@@ -1,10 +1,18 @@
+/**
+ * This app first performs a one-time fetch using `get()`
+ * from the Firestore Lite SDK. Only after the data has been
+ * rendered does it load the full-featured Firestore SDK
+ * and start an `onSnapshot()` subscription to the same
+ * document.
+ */
+
 import { initializeApp } from "firebase/app";
 import {
   getFirestore as getFirestoreLite,
   doc,
   getDoc,
 } from "firebase/firestore/lite";
-import {renderDataOnPage} from './render';
+import { renderDataOnPage } from "./render";
 
 // Create this file and export your own project config from it.
 import { firebaseConfig } from "./firebase-config";

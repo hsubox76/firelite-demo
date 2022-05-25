@@ -1,10 +1,22 @@
+/**
+ * This is identical to dynamic.js except for one additional
+ * optimization: it dynamically imports from an intermediary
+ * file (selected-firestore-exports.js) which statically imports
+ * the 3 named exports we want from Firestore.
+ * 
+ * This is helpful because dynamic imports don't automatically
+ * tree-shake named exports, so we "pre tree shake" them by
+ * statically importing only the ones we want in a different
+ * file, then dynamically importing that file.
+ */
+
 import { initializeApp } from "firebase/app";
 import {
   getFirestore as getFirestoreLite,
   doc,
   getDoc,
 } from "firebase/firestore/lite";
-import {renderDataOnPage} from './render';
+import { renderDataOnPage } from "./render";
 
 // Create this file and export your own project config from it.
 import { firebaseConfig } from "./firebase-config";

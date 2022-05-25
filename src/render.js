@@ -1,5 +1,8 @@
 let currentData = '';
 
+/**
+ * Appends a div to the page with the string provided.
+ */
 export function renderDataOnPage(data) {
   // Only render a new line if data has changed.
   if (data === currentData) {
