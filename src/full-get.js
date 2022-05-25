@@ -1,5 +1,5 @@
 /**
- * This app performs a one time `get()` operation using the
+ * This app performs a one time `getDoc()` operation using the
  * full-featured Firestore SDK.
  */
 
