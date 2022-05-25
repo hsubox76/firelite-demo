@@ -1,10 +1,10 @@
 /**
- * This app starts a real-time listener to a Firestore document
- * using the full-featured Firestore SDK.
+ * This app performs a one time `get()` operation using the
+ * full-featured Firestore SDK.
  */
 
 import { initializeApp } from "firebase/app";
-import { getFirestore, doc, getDoc } from "firebase/firestore";
+import { getFirestore, doc, onSnapshot } from "firebase/firestore";
 import { renderDataOnPage } from "./render";
 
 // Create this file and export your own project config from it.
@@ -15,9 +15,9 @@ async function main() {
   const firestore = getFirestore(app);
   const docRef = doc(firestore, "items/item1");
 
-  const docSnap = await getDoc(docRef);
-
-  renderDataOnPage(docSnap.data().field1);
+  onSnapshot(docRef, (docSnap) => {
+    renderDataOnPage(docSnap.data().field1);
+  });
 }
 
 main();
