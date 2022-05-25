@@ -1,6 +1,6 @@
 /**
- * This app starts a real-time listener to a Firestore document
- * using the full-featured Firestore SDK.
+ * This app performs a one time `get()` operation using the
+ * full-featured Firestore SDK.
  */
 
 import { initializeApp } from "firebase/app";
